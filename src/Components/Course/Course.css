@@ -1,0 +1,84 @@
+/* Course.css */
+
+/* Styling for the Card component */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.table-container {
+  overflow-x: auto; /* Add horizontal scrolling if the table is too wide */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 12px;
+}
+
+.table thead th {
+  background-color: #007bff;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.table .TableRowInCategory {
+  font-size: 16px;
+}
+
+.table .TableRowInCategory button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #007bff;
+}
+
+.table .TableRowInCategory button:hover {
+  color: #0056b3;
+}
+
+.table .bi-trash-fill {
+  color: #dc3545;
+}
+
+.table .bi-search {
+  color: #17a2b8;
+}
+
+.table .bi-trash-fill:hover,
+.table .bi-search:hover {
+  color: #0056b3;
+}
+
+.h2 {
+  color: #333;
+}

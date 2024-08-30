@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Table, Row, Col, Card, Button, Form } from 'react-bootstrap';
+import './Course.css';
+import { Link } from 'react-router-dom';
 
 const Course = () => {
   const [courses, setCourses] = useState([]);
@@ -69,7 +71,9 @@ const Course = () => {
                         <th>ID</th>
                         <th>Course Title</th>
                         <th>Course Code</th>
-                        <th>ACTION</th>
+                        <th style={{ textAlign: 'center' }} colSpan={2}>
+                          ACTION BUTTON
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -77,6 +81,7 @@ const Course = () => {
                         <tr key={item.courseId} className="TableRowInCategory">
                           <td>{item.courseId}</td>
                           <td>{item.courseTitle}</td>
+                          <td>{item.courseCode}</td>
 
                           <td>
                             <Button
@@ -85,19 +90,26 @@ const Course = () => {
                               <i className="bi bi-trash-fill"></i>
                             </Button>
                           </td>
-                          <td>
+                          {/* <td>
                             <Button
                               onClick={() => handleShowCourse(item.courseId)}
                             >
                               <i className="bi bi-search"></i>
                             </Button>
+                          </td> */}
+                          <td>
+                            <Link to={`/courses/${item.courseId}`}>
+                              <Button variant="info">
+                                <i className="bi bi-search"></i>
+                              </Button>
+                            </Link>
                           </td>
                         </tr>
                       ))}
                     </tbody>
                   </Table>
                 ) : (
-                  <h2>No Categories Found</h2>
+                  <h2>No Courses Found</h2>
                 )}
               </div>
             </Card.Body>

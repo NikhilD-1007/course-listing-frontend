@@ -1,0 +1,64 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Container, Card, ListGroup, Button } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
+import './CourseDetails.css';
+
+const CourseDetails = () => {
+  const { courseId } = useParams();
+  const [course, setCourse] = useState(null);
+
+  const fetchCourseDetails = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/api/courses/${courseId}`
+      );
+      //   console.log(response.data);
+
+      setCourse(response.data);
+      console.log('course is ' + course);
+    } catch (error) {
+      console.error('Error fetching course details:', error);
+    }
+  };
+
+  useEffect(() => {
+    console.log(' cid: ' + courseId);
+    fetchCourseDetails();
+  }, [courseId]);
+
+  if (!course) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <Container className="mt-4">
+      <Card>
+        <Card.Body>
+          <Card.Title>Course Details</Card.Title>
+          <ListGroup variant="flush">
+            <ListGroup.Item>
+              <strong>Course Id:</strong> {course.courseId}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <strong>Course Title:</strong> {course.courseTitle}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <strong>Course Code:</strong> {course.courseCode}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <strong>Course Description:</strong>
+              {course.courseDesc}
+            </ListGroup.Item>
+          </ListGroup>
+
+          <Button className="go-back-button" href="/course">
+            Go Back
+          </Button>
+        </Card.Body>
+      </Card>
+    </Container>
+  );
+};
+
+export default CourseDetails;

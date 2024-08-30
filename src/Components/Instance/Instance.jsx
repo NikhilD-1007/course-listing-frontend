@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Table, Row, Col, Card, Button, Form } from 'react-bootstrap';
+import { Table, Row, Col, Card, Button } from 'react-bootstrap';
+import './Instance.css';
+import { Link } from 'react-router-dom';
 
-const Instance = () => {
+const Instance = ({ handleShowInstance }) => {
   const [courses, setCourses] = useState([]);
   const [instances, setInstances] = useState([]);
   const [courseById, setCourseById] = useState('');
@@ -21,19 +23,17 @@ const Instance = () => {
     fetchCourses();
   }, []);
 
-  //@DeleteMapping("/{year}/{sem}/{courseId}")
   const handleDeleteInstance = async (year, sem, cId) => {
     console.log('year: ' + typeof year + ' sem: ' + sem + ' cid: ' + cId);
 
     console.log(`http://localhost:8080/api/instances/${year}/${sem}/${cId}`);
 
     try {
-      const resoponse = await axios.delete(
+      const response = await axios.delete(
         `http://localhost:8080/api/instances/${year}/${sem}/${cId}`
       );
 
-      if (resoponse.status === 200) {
-        // fetchCourses();
+      if (response.status === 200) {
         console.log('Deleted successfully');
         fetchCourses();
       }
@@ -42,46 +42,24 @@ const Instance = () => {
     }
   };
 
-  const handleShowInstance = async (year, sem, courseId) => {
-    console.log('year: ' + year + ' sem: ' + sem + ' cid: ' + courseId);
-
-    try {
-      const response = await axios.get(
-        `http://localhost:8080/api/instances/${year}/${sem}/${courseId}`
-      );
-      console.log(response.data);
-
-      setCourseById(response.data);
-      console.log('course is ' + courseById);
-
-      if (response.status === 200) {
-        // fetchCourses();
-        console.log(response.data);
-
-        console.log('Show instance successfully');
-      }
-    } catch (error) {
-      console.error('Error for show instance:', error);
-    }
-  };
-
   return (
     <div>
       <Row>
         <Col md={12}>
-          <Card className="mt-2 scrollable-card">
+          <Card className="scrollable-card">
             <Card.Body>
-              <Card.Title className="text-center">All Courses</Card.Title>
+              <Card.Title className="text-center">All Instances</Card.Title>
               <div className="table-container">
                 {instances.length > 0 ? (
-                  <Table striped bordered hover>
+                  <Table striped bordered hover className="table">
                     <thead>
                       <tr>
                         <th>ID</th>
                         <th>Course Title</th>
                         <th>Year-Sem</th>
-                        <th>Course Code</th>
-                        <th>ACTION</th>
+                        <th style={{ textAlign: 'center' }} colSpan={2}>
+                          ACTION
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -108,7 +86,7 @@ const Instance = () => {
                               <i className="bi bi-trash-fill"></i>
                             </Button>
                           </td>
-                          <td>
+                          {/* <td>
                             <Button
                               onClick={() =>
                                 handleShowInstance(
@@ -120,6 +98,15 @@ const Instance = () => {
                             >
                               <i className="bi bi-search"></i>
                             </Button>
+                          </td> */}
+                          <td>
+                            <Link
+                              to={`/instance/${item.yearOfDelivery}/${item.semesterOfDelivery}/${item.courseObj.courseId}`}
+                            >
+                              <Button variant="info">
+                                <i className="bi bi-search"></i>
+                              </Button>
+                            </Link>
                           </td>
                         </tr>
                       ))}
@@ -136,4 +123,5 @@ const Instance = () => {
     </div>
   );
 };
+
 export default Instance;

@@ -1,0 +1,79 @@
+/* Instance.css */
+
+/* Styling for the Card component */
+.scrollable-card {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  margin-top: 20px;
+  overflow-x: auto; /* Allows horizontal scrolling if necessary */
+}
+
+/* Styling for the Card Title */
+.card-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Table Styling */
+.table-container {
+  overflow-x: auto;
+}
+
+/* Table Basic Styling */
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th,
+.table td {
+  border: 1px solid #dee2e6;
+  padding: 12px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Button Styling */
+button {
+  border: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Delete Button Styling */
+button i.bi-trash-fill {
+  color: #dc3545; /* Red color for delete icon */
+}
+
+button:hover i.bi-trash-fill {
+  color: #c82333; /* Darker red on hover */
+}
+
+/* Show Button Styling */
+button i.bi-search {
+  color: #28a745; /* Green color for search icon */
+}
+
+button:hover i.bi-search {
+  color: #218838; /* Darker green on hover */
+}

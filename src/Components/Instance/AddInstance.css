@@ -1,0 +1,66 @@
+/* AddInstance.css */
+
+/* Styling for the Card component */
+.fixed-card {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  margin-top: 20px;
+}
+
+/* Styling for the Card Title */
+.card-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* Form Label Styling */
+.form-label {
+  font-weight: bold;
+  color: #333;
+  width: 150px; /* Fixed width for labels */
+  text-align: right;
+  margin-right: 20px; /* Space between label and control */
+}
+
+/* Form Control Styling */
+.form-control {
+  flex: 1; /* Take up remaining space */
+  margin-left: 10px; /* Space between control and label */
+}
+
+/* Button Styling */
+button {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+/* Adjust button color */
+button[type='submit'] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+button[type='submit']:hover {
+  background-color: #0056b3;
+}
+
+/* button[type='button'] {
+  color: white;
+  border: none;
+} */
+
+button[type='button']:hover {
+  background-color: #5a6268;
+}

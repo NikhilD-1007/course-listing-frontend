@@ -1,0 +1,31 @@
+/* CourseDetails.css */
+
+/* Style for the button */
+.go-back-button {
+  width: 150px; /* Adjust the width as needed */
+  font-size: 16px; /* Adjust the font size as needed */
+  background-color: #007bff; /* Bootstrap's primary blue color */
+  color: #ffffff; /* White text color */
+  border: none;
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px; /* Adjust the padding as needed */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: 20px; /* Add some space above the button */
+}
+
+.go-back-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Style for the ListGroup items */
+.list-group-item {
+  padding: 15px; /* Padding inside each list item */
+  border: 1px solid #dee2e6; /* Light border to separate items */
+  border-radius: 4px; /* Rounded corners for list items */
+  margin-bottom: 10px; /* Space between list items */
+}
+
+/* Style for the Card title */
+.card-title {
+  margin-bottom: 20px; /* Space below the card title */
+}
